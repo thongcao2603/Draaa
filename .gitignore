@@ -1,0 +1,38 @@
+# Thư mục và tệp không cần thiết
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# Tệp người dùng
+userSettings/
+*.csproj
+*.sln
+*.suo
+*.user
+*.pidb
+*.userprefs
+
+# Thư mục xuất bản
+Assets/AssetStoreTools*
+
+# Tệp nhị phân
+*.apk
+*.unitypackage
+
+# Tệp cấu hình
+*.tmproj
+*.tmproj.user
+*.tmproj.userprefs
+*.tps
+
+# Tệp đăng nhập và cache
+*.log
+*.stacktrace
+
+# Thư mục khác
+.vscode/
+.idea/
+.DS_Store
