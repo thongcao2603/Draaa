@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
+    [SerializeField] private int maxJump;
+    [SerializeField] private int countJump;
+
     private void Awake()
     {
         rd = GetComponent<Rigidbody2D>();
@@ -20,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = Input.GetAxis("Horizontal");
         Run(direction);
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
@@ -29,7 +32,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        rd.velocity = new Vector2(rd.velocity.x, moveSpeed);
+        if (countJump >= maxJump)
+        {
+            return;
+        }
+        else
+        {
+            countJump++;
+            rd.velocity = new Vector2(rd.velocity.x, moveSpeed);
+            myAnimator.SetTrigger("jump");
+        }
         isGrounded = false;
     }
 
@@ -62,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            countJump = 0;
         }
     }
 
